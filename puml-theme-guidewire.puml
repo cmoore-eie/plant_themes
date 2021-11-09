@@ -1,0 +1,444 @@
+''
+'' Author: Chris Moore
+''
+
+!$THEME = "guidewire"
+
+!if %not(%variable_exists("$BGCOLOR"))
+!$BGCOLOR = "transparent"
+!endif
+
+skinparam backgroundColor $BGCOLOR
+skinparam useBetaStyle false
+
+!$GW_BLACK = "#0E191E"
+!$GW_BLUE = "#00739d"
+!$GW_GRAY = "#666766"
+!$GW_LIGHT_BLUE = "#1EB7DF"
+!$GW_GREEN = "#26D1A0"
+!$GW_YELLOW = "#FFC000"
+!$GW_ORANGE = "#FF4817"
+!$GW_WHITE = "#FFF"
+!$SECONDARY = "#E9ECEF"
+!$SUCCESS = "#73A839"
+!$INFO = "#033C73"
+!$WARNING = "#DD5600"
+!$DANGER = "#C71C22"
+!$LIGHT = "#F8F9FA"
+
+!$FGCOLOR = $GW_BLACK
+!$PRIMARY_DARK = $GW_BLUE
+!$PRIMARY_TEXT = $GW_BLACK
+!$SECONDARY_LIGHT = "#EDF0F2"
+!$SECONDARY_DARK = "#BABDBF"
+!$SECONDARY_TEXT = $SECONDARY_DARK
+!$INFO_LIGHT = "#35638F"
+' !$INFO_TEXT = $INFO
+!$INFO_TEXT = $GW_LIGHT_BLUE
+!$SUCCESS_LIGHT = "#8FB961"
+!$SUCCESS_TEXT = $SUCCESS
+!$WARNING_LIGHT = "#E47833"
+!$WARNING_TEXT = $WARNING
+!$DANGER_LIGHT = "#D2494E"
+!$DANGER_TEXT = $GW_WHITE
+
+!procedure $success($msg)
+  $msg
+!endprocedure
+
+!procedure $failure($msg)
+  $msg
+!endprocedure
+
+!procedure $warning($msg)
+  $msg
+!endprocedure
+
+!procedure $primary_scheme()
+	FontColor $GW_BLACK
+	BorderColor $GW_BLACK
+	BackgroundColor $BGCOLOR
+!endprocedure
+
+''
+'' Global Default Values
+''
+skinparam defaultFontName       "Arial"
+skinparam defaultFontSize       9
+skinparam dpi                   100
+skinparam shadowing             false
+skinparam roundcorner           8
+skinparam ParticipantPadding    40
+skinparam BoxPadding            40
+skinparam Padding               5
+skinparam ArrowColor            $GW_GRAY
+' skinparam Linetype ortho
+skinparam stereotype {
+    CBackgroundColor $SECONDARY_LIGHT
+    CBorderColor $SECONDARY_DARK
+    ABackgroundColor $SUCCESS_LIGHT
+    ABorderColor $SUCCESS_DARK
+    IBackgroundColor $DANGER_LIGHT
+    IBorderColor $DANGER_DARK
+    EBackgroundColor $WARNING_LIGHT
+    EBorderColor $WARNING_DARK
+    NBackgroundColor $INFO_LIGHT
+    NBorderColor $INFO_DARK
+}
+skinparam title {
+	FontColor	                 $GW_LIGHT_BLUE
+	BorderColor	                 $BGCOLOR
+	FontSize	    	         14
+	BorderRoundCorner            8
+	BorderThickness 	         1
+	BackgroundColor              $BGCOLOR
+}
+
+skinparam legend {
+	BackgroundColor $BGCOLOR
+	BorderColor $SECONDARY_DARK
+	FontColor $GW_BLACK
+}
+
+!startsub swimlane
+skinparam swimlane {
+	BorderColor $INFO
+	BorderThickness 2
+	TitleBackgroundColor  $SECONDARY_LIGHT-$SECONDARY
+	TitleFontColor $GW_BLUE
+}
+!endsub
+
+!startsub activity
+
+skinparam activity {
+	$primary_scheme()
+	BarColor $SUCCESS
+	StartColor $INFO
+	EndColor $INFO
+	''
+	DiamondBackgroundColor $BGCOLOR
+  	DiamondBorderColor $SECONDARY_DARK
+	DiamondFontColor $SECONDARY_TEXT
+}
+!endsub
+
+!startsub participant
+
+skinparam participant {
+	$primary_scheme()
+	ParticipantBorderThickness 2
+}
+!endsub
+
+!startsub actor
+
+skinparam actor {
+	$primary_scheme()
+}
+!endsub
+
+!startsub arrow
+
+skinparam arrow {
+	Thickness 2
+	Color $GW_BLACK
+	FontColor $FGCOLOR
+}
+!endsub
+
+!startsub sequence
+
+skinparam sequence {
+	BorderColor $GW_BLUE
+	' For some reason sequence title font color does not pick up from global
+	TitleFontColor $GW_BLUE
+	BackgroundColor $BGCOLOR
+	StartColor $GW_BLUE
+	EndColor $GW_BLUE
+	''
+	BoxBackgroundColor $BGCOLOR
+	BoxBorderColor $GRAY
+	BoxFontColor $GW_BLACK
+	''
+	LifeLineBorderColor $SECONDARY_DARK
+	LifeLineBorderThickness 2
+	LifeLineBackgroundColor $BGCOLOR
+	''
+	GroupBorderColor $GRAY
+	GroupFontColor $GW_BLACK
+	GroupHeaderFontColor $INFO_TEXT
+	''
+	DividerBackgroundColor $BGCOLOR
+    DividerBorderColor $GRAY
+    DividerBorderThickness 2
+    DividerFontColor $GW_BLACK
+	''
+	ReferenceBackgroundColor $BGCOLOR
+	ReferenceBorderColor $GRAY
+	ReferenceFontColor $GW_BLACK
+	ReferenceHeaderFontColor $INFO_TEXT
+}
+!endsub
+
+!startsub partition
+
+skinparam partition {
+	BorderColor $GW_BLUE
+	FontColor $GW_BLUE
+	BackgroundColor $BGCOLOR
+}
+!endsub
+
+!startsub collections
+
+skinparam collections {
+	$primary_scheme()
+}
+!endsub
+
+!startsub control
+
+skinparam control {
+	$primary_scheme()
+}
+!endsub
+
+!startsub entity
+
+skinparam entity {
+	$primary_scheme()
+}
+!endsub
+
+!startsub boundary
+
+skinparam boundary {
+	$primary_scheme()
+}
+!endsub
+
+!startsub agent
+
+skinparam agent {
+	BackgroundColor $BGCOLOR
+	BorderColor #999999
+	FontColor #333333
+}
+!endsub
+
+!startsub note
+
+skinparam note {
+	BorderThickness 1
+	BackgroundColor $BGCOLOR
+	BorderColor $INFO
+	FontColor $INFO_TEXT
+}
+!endsub
+
+!startsub artifact
+
+skinparam artifact {
+	BackgroundColor $BGCOLOR
+	BorderColor $GRAY
+	FontColor $GRAY
+}
+!endsub
+
+!startsub component
+
+skinparam component {
+	$primary_scheme()
+	' BackgroundColor $BGCOLOR
+	' BorderColor  $SUCCESS
+	' FontColor $SUCCESS_TEXT
+}
+!endsub
+
+!startsub interface
+
+skinparam interface {
+	BackgroundColor  $BGCOLOR
+	BorderColor  $DANGER
+	FontColor $GW_BLACK
+}
+!endsub
+
+!startsub storage
+
+skinparam storage {
+	BackgroundColor $BGCOLOR
+  	BorderColor $WARNING
+	FontColor $WARNING_TEXT
+}
+!endsub
+
+!startsub node
+
+skinparam node {
+	BackgroundColor $BGCOLOR
+	BorderColor $GW_BLACK
+	FontColor $GW_BLACK
+}
+!endsub
+
+!startsub cloud
+
+skinparam cloud {
+	BackgroundColor #F2FCFE-#eeeeee
+	BorderColor #F2FCFE
+	FontColor $GW_BLACK
+}
+!endsub
+
+!startsub database
+
+skinparam database {
+	$primary_scheme()
+}
+!endsub
+
+!startsub class
+
+skinparam class {
+	$primary_scheme()
+	FontColor $LIGHT
+	HeaderBackgroundColor $GW_BLUE
+	StereotypeFontColor $LIGHT
+	BorderThickness 1
+	AttributeFontColor $GW_BLACK
+	AttributeFontSize 9
+	''
+	HeaderBackgroundColor<<Base>> $GW_ORANGE
+	FontColor<<Base>> $GW_WHITE
+	''
+	HeaderBackgroundColor<<Delegate>> $GW_GRAY
+	FontColor<<Delegate>> $GW_WHITE
+	''
+	HeaderBackgroundColor<<Typelist>> $GW_LIGHT_BLUE
+	FontColor<<Typelist>> $GW_BLACK
+	StereotypeFontColor<<Typelist>> $GW_BLACK
+}
+!endsub
+
+!startsub object
+
+skinparam object {
+	$primary_scheme()
+	StereotypeFontColor $GW_BLACK
+	BorderThickness 1
+	AttributeFontColor $SECONDARY_DARK
+	AttributeFontSize 11
+}
+!endsub
+
+!startsub usecase
+
+skinparam usecase {
+	$primary_scheme()
+	BorderThickness 2
+	StereotypeFontColor $GW_BLACK
+}
+!endsub
+
+!startsub rectangle
+
+skinparam rectangle {
+	$primary_scheme()
+	BorderThickness 2
+	StereotypeFontColor $GW_BLACK
+}
+!endsub
+
+!startsub package
+
+skinparam package {
+	BackgroundColor $BGCOLOR
+  	' BorderColor $PRIMARY
+	BorderColor $GW_GRAY
+	FontColor $GW_BLACK
+	BorderThickness 2
+}
+!endsub
+
+!startsub folder
+
+skinparam folder {
+	BackgroundColor $BGCOLOR
+  	BorderColor $WARNING
+	FontColor $WARNING
+	BorderThickness 2
+}
+!endsub
+
+!startsub frame
+
+skinparam frame {
+	BackgroundColor $BGCOLOR
+  	BorderColor $INFO
+	FontColor $INFO_TEXT
+	BorderThickness 2
+}
+!endsub
+
+!startsub state
+
+skinparam state {
+	$primary_scheme()
+	StartColor $INFO
+	EndColor $INFO
+	AttributeFontColor $SECONDARY_TEXT
+	AttributeFontSize 11
+}
+!endsub
+
+!startsub queue
+
+skinparam queue {
+	$primary_scheme()
+}
+!endsub
+
+!startsub card
+
+skinparam card {
+	BackgroundColor $BGCOLOR
+	BorderColor $INFO
+	FontColor $INFO_TEXT
+}
+!endsub
+
+!startsub file
+
+skinparam file {
+	BackgroundColor $BGCOLOR
+	BorderColor $GRAY
+	FontColor $GRAY
+}
+!endsub
+
+!startsub stack
+
+skinparam stack {
+	$primary_scheme()
+}
+!endsub
+
+!if (%variable_exists("LEGACY"))
+!$LEGACY = "true"
+!endif
+
+!if (%getenv("LEGACY") == "true")
+!$LEGACY = "true"
+!endif
+
+!if (%variable_exists("$LEGACY"))
+
+skinparam useBetaStyle true
+
+!startsub mindmap
+
+
+!endsub
+!endif
